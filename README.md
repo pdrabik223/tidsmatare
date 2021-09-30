@@ -1,2 +1,6 @@
-# tidsmatare
-simple yet versatile time measuring tool
+# Tidsmätare
+
+Simple yet versatile time measuring tool
+
+
+
