@@ -28,6 +28,9 @@ void ConsoleStopper::EndClock() {
 }
 
 void ConsoleStopper::DisplayTimings() {
-  for (int i = 0; i < timings_.size(); i++)
-    printf("time\t%d:\t%lld\n", i, timings_[i].count());
+  for (long long unsigned i = 0; i < timings_.size(); i++)
+    printf("time\t%llu:\t%lld\n", i, timings_[i].count());
+}
+void ConsoleStopper::DisplayLastTime() {
+  printf("time\t%llu:\t%lld\n", timings_.size()-1, timings_.back().count());
 }
