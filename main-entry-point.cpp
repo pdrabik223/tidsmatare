@@ -21,10 +21,7 @@ int main() {
   OneSecondFunction();
   time.Measure();
 
-
   time.DisplayTimings();
-  int duzo = 100'000'000;
-  std::cout<<duzo;
   return 0;
 
 }
