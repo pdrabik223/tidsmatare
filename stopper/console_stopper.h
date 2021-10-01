@@ -19,7 +19,7 @@ public:
   void DisplayTimings();
   void DisplayLastTime();
 
-  ~ConsoleStopper();
+  ~ConsoleStopper() = default;
 private:
   void EndClock() override;
 };

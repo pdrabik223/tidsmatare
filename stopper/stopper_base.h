@@ -6,15 +6,11 @@
 #define TIDSMATARE__STOPPER_BASE_H_
 
 #include <chrono>
+#include <optional>
 #include <vector>
-enum class ClockResolution{
-  SECONDS,
-  MILLISECONDS,
-  MICROSECONDS,
-  NANOSECONDS
-};
+enum class ClockResolution { SECONDS, MILLISECONDS, MICROSECONDS, NANOSECONDS };
 
-
+enum class ClockState { OFFLINE, RUNNING, STOPPED };
 
 class StopperBase {
 
@@ -26,15 +22,19 @@ protected:
   /// used only in destructor
   virtual void EndClock() = 0;
 
-  std::vector<std::chrono::nanoseconds> timings_;
+  std::vector<std::chrono::milliseconds> timings_;
 
-  std::chrono::nanoseconds off_time_;
+  std::chrono::time_point<std::chrono::high_resolution_clock>
+      clock_start_point_;
 
-  std::chrono::time_point<std::chrono::high_resolution_clock> clock_start_point_;
+  std::chrono::time_point<std::chrono::high_resolution_clock> clock_stop_point_;
 
-  std::chrono::high_resolution_clock clock_;
+  /// current clock state
+  ClockState clock_state_ = ClockState::OFFLINE;
 
+  std::chrono::milliseconds off_time_ = std::chrono::milliseconds(0);
 
+  std::chrono::high_resolution_clock clock_; //
 };
 
 #endif // TIDSMATARE__STOPPER_BASE_H_

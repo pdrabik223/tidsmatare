@@ -4,12 +4,27 @@
 
 #include <iostream>
 #include <thread>
+#include "console_stopper.h"
 void OneSecondFunction();
 
 int main() {
-
+  ConsoleStopper time;
+  time.StartClock();
   OneSecondFunction();
+  time.Measure();
+  OneSecondFunction();
+  time.Measure();
+  OneSecondFunction();
+  time.Measure();
+  OneSecondFunction();
+  time.Measure();
+  OneSecondFunction();
+  time.Measure();
 
+
+  time.DisplayTimings();
+  int duzo = 100'000'000;
+  std::cout<<duzo;
   return 0;
 
 }
