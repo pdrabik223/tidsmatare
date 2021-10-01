@@ -15,12 +15,12 @@ enum class ClockState { OFFLINE, RUNNING, STOPPED };
 class StopperBase {
 
 protected:
-  virtual void StartClock() = 0;
-  virtual void StopClock() = 0;
-  virtual void Measure() = 0;
+    virtual void StartClock();
+  virtual void StopClock();
+  virtual void Measure();
 
   /// used only in destructor
-  virtual void EndClock() = 0;
+  virtual void EndClock();
 
   std::vector<std::chrono::milliseconds> timings_;
 
@@ -34,7 +34,6 @@ protected:
 
   std::chrono::milliseconds off_time_ = std::chrono::milliseconds(0);
 
-  std::chrono::high_resolution_clock clock_; //
 };
 
 #endif // TIDSMATARE__STOPPER_BASE_H_
