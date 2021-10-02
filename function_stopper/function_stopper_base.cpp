@@ -53,3 +53,7 @@ void function_stopper::FunctionStopperBase::Measure() {
 
   clock_state_ = ClockState::OFFLINE;
 }
+const std::vector<std::chrono::milliseconds> &
+function_stopper::FunctionStopperBase::GetTimings() {
+  return timings_;
+}

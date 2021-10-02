@@ -26,10 +26,10 @@ public:
 
   virtual void Output()  = delete;
 
-  void DisplayTimings(){
-    for (long long unsigned i = 0; i < timings_.size(); i++)
-      printf("time\t%llu:\t%lld\n", i, timings_[i].count());
-  }
+  virtual const  std::vector<std::chrono::milliseconds>& GetTimings();
+
+
+
 private:
 
   std::vector<std::chrono::milliseconds> timings_;
