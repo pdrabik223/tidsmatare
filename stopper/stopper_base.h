@@ -6,7 +6,6 @@
 #define TIDSMATARE__STOPPER_BASE_H_
 
 #include <chrono>
-#include <optional>
 #include <vector>
 enum class ClockResolution { SECONDS, MILLISECONDS, MICROSECONDS, NANOSECONDS };
 
